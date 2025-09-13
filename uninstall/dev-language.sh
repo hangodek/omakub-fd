@@ -22,8 +22,8 @@ if [[ -n $languages ]]; then
       mise uninstall go@latest
       ;;
     PHP)
-      sudo apt -y purge php php-{curl,apcu,intl,mbstring,opcache,pgsql,mysql,sqlite3,redis,xml,zip}
-      sudo apt -y autoremove
+      sudo dnf remove -y php php-curl php-apcu php-intl php-mbstring php-opcache php-pgsql php-mysqlnd php-sqlite3 php-redis php-xml php-zip
+      sudo dnf autoremove -y
       sudo rm /usr/local/bin/composer
       ;;
     Python)

@@ -1,5 +1,6 @@
 #!/bin/bash
 
-sudo add-apt-repository -y ppa:cappelikan/ppa
-sudo apt update -y
-sudo apt install -y mainline
+# On Fedora, kernel updates are handled through the main repositories
+# Enable testing repositories for newer kernels if needed
+sudo dnf install -y kernel kernel-devel
+echo "Latest kernel packages installed. Fedora handles kernel updates through DNF."

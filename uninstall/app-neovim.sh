@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt purge -y neovim neovim-runtime
+sudo dnf remove -y neovim
 rm ~/.local/share/applications/Neovim.desktop
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim

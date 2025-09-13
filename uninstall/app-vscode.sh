@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo apt purge -y remove code
+sudo dnf remove -y code
 rm -rf ~/.config/Code/User

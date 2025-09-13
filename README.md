@@ -1,8 +1,8 @@
-# Omakub
+# Omakub for Fedora
 
-Turn a fresh Ubuntu installation into a fully-configured, beautiful, and modern web development system by running a single command. That's the one-line pitch for Omakub. No need to write bespoke configs for every essential tool just to get started or to be up on all the latest command-line tools. Omakub is an opinionated take on what Linux can be at its best.
+Turn a fresh Fedora installation into a fully-configured, beautiful, and modern web development system by running a single command. That's the one-line pitch for Omakub for Fedora. No need to write bespoke configs for every essential tool just to get started or to be up on all the latest command-line tools. Omakub for Fedora is an opinionated take on what Linux can be at its best, specifically tailored for Fedora users.
 
-Watch the introduction video and read more at [omakub.org](https://omakub.org).
+This is a Fedora-specific fork of the original Omakub project, adapted to work with Fedora's dnf package manager and ecosystem.
 
 ## Contributing to the documentation
 
