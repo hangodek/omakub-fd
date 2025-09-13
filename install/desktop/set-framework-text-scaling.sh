@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Install xrandr if not available
+if ! command -v xrandr &> /dev/null; then
+    sudo dnf install -y xrandr
+fi
+
 COMPUTER_MAKER=$(sudo dmidecode -t system | grep 'Manufacturer:' | awk '{print $2}')
 SCREEN_RESOLUTION=$(xrandr | grep '*+' | awk '{print $1}')
 
