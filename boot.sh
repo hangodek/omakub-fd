@@ -11,7 +11,7 @@ ascii_art='________                  __        ___.
 '
 
 echo -e "$ascii_art"
-echo "=> Omakub is for fresh Fedora 40+ installations only!"
+echo "=> Omakub is for fresh Fedora 42+ installations only!"
 echo -e "\nBegin installation (or abort with ctrl+c)..."
 
 sudo dnf update -y >/dev/null
