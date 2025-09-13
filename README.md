@@ -6,7 +6,7 @@ This is a Fedora-specific fork of the original Omakub project, adapted to work w
 
 ## Contributing to the documentation
 
-Please help us improve Omakub's documentation on the [basecamp/omakub-site repository](https://github.com/basecamp/omakub-site).
+This is a community-maintained Fedora fork. For contributing to the original project's documentation, visit the original Omakub repository.
 
 ## License
 
