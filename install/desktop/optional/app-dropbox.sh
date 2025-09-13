@@ -1,4 +1,5 @@
 #!/bin/bash
 
 # Sync files across machines using https://dropbox.com
-sudo apt install -y nautilus-dropbox >/dev/null
+# Install Dropbox via Flatpak for better Fedora compatibility
+flatpak install -y flathub com.dropbox.Client

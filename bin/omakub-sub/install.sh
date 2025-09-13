@@ -11,7 +11,7 @@ CHOICES=(
   "Dropbox           Sync files across computers with ease"
   "Gimp              Image manipulation tool ala Photoshop"
   "Geekbench         CPU benchmaking tool"
-  "Mainline Kernels  Install newer Linux kernels than Ubuntu defaults"
+  "Mainline Kernels  Install newer Linux kernels than Fedora defaults"
   "Minecraft         Everyone's favorite blocky building game"
   "OBS Studio        Record screencasts with inputs from both display + webcam"
   "Ollama            Run LLMs, like Meta's Llama3, locally"

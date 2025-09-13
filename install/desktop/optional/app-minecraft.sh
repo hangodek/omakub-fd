@@ -1,9 +1,7 @@
 #!/bin/bash
 
-sudo apt install -y openjdk-8-jdk
+# Install Java and Minecraft Launcher for Fedora
+sudo dnf install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
 
-cd /tmp
-wget https://launcher.mojang.com/download/Minecraft.deb
-sudo apt install -y ./Minecraft.deb
-rm Minecraft.deb
-cd -
+# Minecraft launcher is best installed via Flatpak on Fedora
+flatpak install -y flathub com.mojang.Minecraft

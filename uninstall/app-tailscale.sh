@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y tailscale
+sudo dnf remove -y tailscale

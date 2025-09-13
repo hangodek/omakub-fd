@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# Provides a system clipboard interface for Neovim under Wayland
-sudo apt install wl-clipboard
+# Copy and paste on Wayland using command line
+sudo dnf install -y wl-clipboard
