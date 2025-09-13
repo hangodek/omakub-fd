@@ -6,7 +6,6 @@ apps=(
 	"Alacritty.desktop"
 	"Neovim.desktop"
 	"code.desktop"
-	"signal-desktop.desktop"
 	"Zoom.desktop"
 	"spotify.desktop"
 	"steam.desktop"
