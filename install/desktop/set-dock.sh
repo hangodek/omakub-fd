@@ -10,7 +10,6 @@ apps=(
 	"Zoom.desktop"
 	"spotify.desktop"
 	"steam.desktop"
-	"pinta_pinta.desktop"
 	"Activity.desktop"
 	"Docker.desktop"
 	"Omakub.desktop"
