@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
 # Make alacritty default terminal emulator
+# First install the alternative, then set it as default
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/alacritty 50
 sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 
 # Adding alacritty to nautilus contextual menu requires the python wrapper for the libraries
