@@ -9,7 +9,7 @@ sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
 
 # Install necessary development tools and extensions for Nautilus
-sudo dnf install -y python3-nautilus
+sudo dnf install -y nautilus-python
 mkdir -p ~/.local/share/nautilus-python/extensions/
 
 cat > ~/.local/share/nautilus-python/extensions/open-alacritty.py <<TECHNICALLYNOTACONFIGSOHEREDOCCEDITIS
