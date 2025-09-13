@@ -9,16 +9,4 @@ chmod +x LocalSend.AppImage
 sudo mkdir -p /opt/localsend
 sudo mv LocalSend.AppImage /opt/localsend/
 
-# Create desktop entry
-cat > ~/.local/share/applications/localsend.desktop << EOF
-[Desktop Entry]
-Name=LocalSend
-Comment=Share files to nearby devices
-Exec=/opt/localsend/LocalSend.AppImage
-Icon=localsend
-Type=Application
-Categories=Network;FileTransfer;
-StartupNotify=true
-EOF
-
 cd -
