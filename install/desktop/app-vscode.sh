@@ -7,7 +7,7 @@ if command -v code &> /dev/null; then
     mkdir -p ~/.config/Code/User
     cp ~/.local/share/omakub/configs/vscode.json ~/.config/Code/User/settings.json
     # Try to install extension (skip if already installed)
-    code --install-extension enkia.tokyo-night 2>/dev/null || true
+    code --install-extension enkia.tokyo-night >/dev/null 2>&1 || true
     exit 0
 fi
 
@@ -21,4 +21,4 @@ mkdir -p ~/.config/Code/User
 cp ~/.local/share/omakub/configs/vscode.json ~/.config/Code/User/settings.json
 
 # Install default supported themes
-code --install-extension enkia.tokyo-night 2>/dev/null || true
+code --install-extension enkia.tokyo-night >/dev/null 2>&1 || true
