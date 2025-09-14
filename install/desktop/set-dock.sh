@@ -7,6 +7,7 @@ apps=(
 	"Alacritty.desktop"
 	"Neovim.desktop"
 	"code.desktop"
+	"com.discordapp.Discord.desktop"
 	"Zoom.desktop"
 	"spotify.desktop"
 	"steam.desktop"
