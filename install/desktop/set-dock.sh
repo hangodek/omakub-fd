@@ -8,6 +8,8 @@ apps=(
 	"Neovim.desktop"
 	"code.desktop"
 	"com.discordapp.Discord.desktop"
+	"org.kde.kdenlive.desktop"
+	"com.obsproject.Studio.desktop"
 	"Zoom.desktop"
 	"spotify.desktop"
 	"steam.desktop"
