@@ -7,7 +7,7 @@ if dnf list installed google-chrome-stable &>/dev/null; then
     echo "Google Chrome is installed. Checking for updates..."
     if dnf check-update google-chrome-stable &>/dev/null; then
         echo "Google Chrome is up to date, skipping installation..."
-        exit 0
+        return 0
     else
         echo "Google Chrome update available, proceeding with installation..."
     fi

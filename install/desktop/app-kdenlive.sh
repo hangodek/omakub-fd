@@ -6,7 +6,7 @@ echo "Installing Kdenlive..."
 # Check if Kdenlive is already installed via DNF
 if dnf list installed kdenlive &>/dev/null; then
     echo "Kdenlive is already installed, skipping installation..."
-    exit 0
+    return 0
 fi
 
 # Install Kdenlive via DNF

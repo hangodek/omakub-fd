@@ -7,7 +7,7 @@ if command -v microsoft-edge &> /dev/null; then
     echo "Microsoft Edge is already installed, skipping..."
     # Still set as default browser in case it wasn't set
     xdg-settings set default-web-browser microsoft-edge.desktop
-    exit 0
+    return 0
 fi
 
 echo "Installing Microsoft Edge..."
