@@ -8,7 +8,7 @@ echo "Installing Microsoft Edge..."
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
 # Add Microsoft Edge repository
-sudo dnf config-manager  --from-repofile=https://packages.microsoft.com/yumrepos/edge/config.repo
+sudo dnf config-manager addrepo --from-repofile=https://packages.microsoft.com/yumrepos/edge/config.repo
 
 # Install Microsoft Edge (DNF will skip if already installed)
 sudo dnf install -y microsoft-edge-stable
