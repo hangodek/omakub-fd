@@ -1,12 +1,22 @@
 #!/bin/bash
 
-# Install EasyEffects (audio effects processor) and community presets
+# Install EasyEffects (audio effects processor)
 echo "Installing EasyEffects..."
 sudo dnf install -y easyeffects
 
-# Install community presets from JackHack96/PulseEffects-Presets
-echo "Installing EasyEffects community presets (all presets)..."
-echo "1" | bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
+# Create EasyEffects config directory if it doesn't exist
+mkdir -p ~/.config/easyeffects/output ~/.config/easyeffects/input
+
+# Install community presets from JackHack96/PulseEffects-Presets (non-interactive)
+echo "Installing EasyEffects community presets..."
+cd /tmp
+curl -fsSL https://github.com/JackHack96/PulseEffects-Presets/archive/master.zip -o presets.zip
+unzip -q presets.zip
+cp -r PulseEffects-Presets-master/output/* ~/.config/easyeffects/output/ 2>/dev/null || true
+cp -r PulseEffects-Presets-master/input/* ~/.config/easyeffects/input/ 2>/dev/null || true
+cp -r PulseEffects-Presets-master/irs ~/.config/easyeffects/ 2>/dev/null || true
+rm -rf presets.zip PulseEffects-Presets-master
+cd -
 
 # Configure PipeWire for optimal DSP performance
 echo "Configuring PipeWire DSP settings..."
