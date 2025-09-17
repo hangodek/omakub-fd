@@ -7,9 +7,9 @@ apps=(
 	"Alacritty.desktop"
 	"Neovim.desktop"
 	"code.desktop"
-	"com.discordapp.Discord.desktop"
+	"discord.desktop"
 	"kdenlive.desktop"
-	"com.obsproject.Studio.desktop"
+	"obs-studio.desktop"
 	"waydroid.desktop"
 	"Zoom.desktop"
 	"spotify.desktop"
@@ -27,7 +27,6 @@ installed_apps=()
 
 # Directory where .desktop files are typically stored
 desktop_dirs=(
-	"/var/lib/flatpak/exports/share/applications"
 	"/usr/share/applications"
 	"/usr/local/share/applications"
 	"$HOME/.local/share/applications"
