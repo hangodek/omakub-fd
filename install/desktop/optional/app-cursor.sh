@@ -1,25 +1,22 @@
 #!/bin/bash
 
-cd /tmp
-curl -L "https://www.cursor.com/api/download?platform=linux-x64&releaseTrack=stable" | jq -r '.downloadUrl' | xargs curl -L -o cursor.appimage
-sudo mv cursor.appimage /opt/cursor.appimage
-sudo chmod +x /opt/cursor.appimage
-sudo dnf install -y fuse3 fuse-libs
+if [ ! -f /opt/cursor/cursor.appimage ]; then
+  echo "Installing Cursor..."
+  cd /tmp
+  curl -L "https://www.cursor.com/api/download?platform=linux-x64&releaseTrack=stable" | jq -r '.downloadUrl' | xargs curl -L -o cursor.appimage
+  chmod +x cursor.appimage
+  sudo mkdir -p /opt/cursor
+  sudo mv cursor.appimage /opt/cursor/
+  cd -
 
-DESKTOP_FILE="/usr/share/applications/cursor.desktop"
-
-sudo bash -c "cat > $DESKTOP_FILE" <<EOL
+  cat <<EOF | sudo tee /usr/share/applications/cursor.desktop > /dev/null
 [Desktop Entry]
 Name=Cursor
-Comment=AI-powered code editor
-Exec=/opt/cursor.appimage --no-sandbox
-Icon=/home/$USER/.local/share/omakub/applications/icons/cursor.png
+Exec=/opt/cursor/cursor.appimage
+Icon=cursor
 Type=Application
-Categories=Development;IDE;
-EOL
-
-if [ -f "$DESKTOP_FILE" ]; then
-	echo "cursor.desktop created successfully"
+Categories=Development;
+EOF
 else
-	echo "Failed to create cursor.desktop"
+  echo "Cursor is already installed, skipping."
 fi
