@@ -8,15 +8,19 @@ sudo dnf install -y easyeffects
 mkdir -p ~/.config/easyeffects/output ~/.config/easyeffects/input
 
 # Install community presets from JackHack96/PulseEffects-Presets (non-interactive)
-echo "Installing EasyEffects community presets..."
-cd /tmp
-curl -fsSL https://github.com/JackHack96/PulseEffects-Presets/archive/master.zip -o presets.zip
-unzip -q presets.zip
-cp -r PulseEffects-Presets-master/output/* ~/.config/easyeffects/output/ 2>/dev/null || true
-cp -r PulseEffects-Presets-master/input/* ~/.config/easyeffects/input/ 2>/dev/null || true
-cp -r PulseEffects-Presets-master/irs ~/.config/easyeffects/ 2>/dev/null || true
-rm -rf presets.zip PulseEffects-Presets-master
-cd -
+if [ -z "$(find ~/.config/easyeffects/output -maxdepth 1 -name '*.json' -print -quit 2>/dev/null)" ]; then
+  echo "Installing EasyEffects community presets..."
+  cd /tmp
+  curl -fsSL https://github.com/JackHack96/PulseEffects-Presets/archive/master.zip -o presets.zip
+  unzip -qo presets.zip
+  \cp -rf PulseEffects-Presets-master/output/* ~/.config/easyeffects/output/ 2>/dev/null || true
+  \cp -rf PulseEffects-Presets-master/input/* ~/.config/easyeffects/input/ 2>/dev/null || true
+  \cp -rf PulseEffects-Presets-master/irs ~/.config/easyeffects/ 2>/dev/null || true
+  rm -rf presets.zip PulseEffects-Presets-master
+  cd -
+else
+  echo "EasyEffects community presets already installed, skipping."
+fi
 
 # Configure PipeWire for optimal DSP performance
 echo "Configuring PipeWire DSP settings..."
