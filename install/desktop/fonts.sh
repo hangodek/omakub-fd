@@ -2,7 +2,7 @@
 
 mkdir -p ~/.local/share/fonts
 
-if ! ls ~/.local/share/fonts/Caskaydia* &> /dev/null && ! ls ~/.local/share/fonts/Cascadia* &> /dev/null; then
+if [ -z "$(find ~/.local/share/fonts -maxdepth 1 -iname 'Cascadia*' -print -quit 2>/dev/null)" ] && [ -z "$(find ~/.local/share/fonts -maxdepth 1 -iname 'Caskaydia*' -print -quit 2>/dev/null)" ]; then
   echo "Installing Cascadia fonts..."
   cd /tmp
   wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
@@ -14,7 +14,7 @@ else
   echo "Cascadia fonts already installed, skipping."
 fi
 
-if ! ls ~/.local/share/fonts/iAWriterMonoS-*.ttf &> /dev/null; then
+if [ -z "$(find ~/.local/share/fonts -maxdepth 1 -name 'iAWriterMonoS-*.ttf' -print -quit 2>/dev/null)" ]; then
   echo "Installing iA-Fonts..."
   cd /tmp
   wget -O iafonts.zip https://github.com/iaolo/iA-Fonts/archive/refs/heads/master.zip
@@ -26,7 +26,7 @@ else
   echo "iA-Fonts already installed, skipping."
 fi
 
-if ! ls ~/.local/share/fonts/Arial.ttf &> /dev/null && ! ls ~/.local/share/fonts/arial.ttf &> /dev/null; then
+if [ -z "$(find ~/.local/share/fonts -maxdepth 1 -iname 'arial*' -print -quit 2>/dev/null)" ]; then
   echo "Installing Microsoft Fonts..."
   cd /tmp
   git clone https://github.com/FSKiller/Microsoft-Fonts.git msfonts
