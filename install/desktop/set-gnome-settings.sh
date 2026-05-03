@@ -18,3 +18,8 @@ gsettings set org.gnome.desktop.calendar show-weekdate true
 
 # Turn off ambient sensors for setting screen brightness (they rarely work well!)
 gsettings set org.gnome.settings-daemon.plugins.power ambient-enabled false
+
+# Disable GNOME App Search and Tracker File Indexing
+gsettings set org.gnome.desktop.search-providers disable-external true
+gsettings set org.freedesktop.Tracker3.Miner.Files index-recursive-directories "[]" 2>/dev/null || true
+gsettings set org.freedesktop.Tracker3.Miner.Files index-single-directories "[]" 2>/dev/null || true
