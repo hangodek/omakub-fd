@@ -37,4 +37,15 @@ else
   echo "Microsoft Fonts already installed, skipping."
 fi
 
+if [ -z "$(find ~/.local/share/fonts -maxdepth 1 -iname 'SF-Pro*' -print -quit 2>/dev/null)" ]; then
+  echo "Installing San Francisco Pro Fonts..."
+  cd /tmp
+  git clone https://github.com/sahibjotsaggu/San-Francisco-Pro-Fonts.git sffonts
+  cp -r sffonts/*.otf ~/.local/share/fonts/ 2>/dev/null || true
+  rm -rf sffonts
+  cd -
+else
+  echo "San Francisco Pro Fonts already installed, skipping."
+fi
+
 fc-cache
