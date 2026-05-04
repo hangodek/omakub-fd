@@ -2,7 +2,7 @@
 
 # Favorite apps for dock
 apps=(
-	"microsoft-edge.desktop"
+	"librewolf.desktop"
 	"google-chrome.desktop"
 	"Alacritty.desktop"
 	"Neovim.desktop"
