@@ -30,3 +30,13 @@ EOF
 sudo systemctl enable --now systemd-resolved
 sudo systemctl restart systemd-resolved
 sudo systemctl restart NetworkManager
+
+# Disable NetworkManager-wait-online.service to speed up boot
+echo "Disabling NetworkManager-wait-online.service..."
+sudo systemctl disable NetworkManager-wait-online.service
+
+# Stop Gnome Software from autostarting (saves RAM)
+if [ -f /etc/xdg/autostart/org.gnome.Software.desktop ]; then
+  echo "Disabling Gnome Software autostart..."
+  sudo rm /etc/xdg/autostart/org.gnome.Software.desktop
+fi
