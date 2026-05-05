@@ -18,11 +18,11 @@ EOF
 
 sudo sysctl -p /etc/sysctl.d/99-omakub-performance.conf
 
-# Reduce user-level systemd stop timeout (default 90s is way too long)
-mkdir -p ~/.config/systemd/user.conf.d
-cat <<EOF > ~/.config/systemd/user.conf.d/10-omakub-timeout.conf
-[Manager]
-DefaultTimeoutStopSec=10s
-EOF
-
-echo "User systemd stop timeout set to 10s."
+# Disable core dumps for the current user (prevents large dump files from wasting disk space)
+CURRENT_USER=$(whoami)
+if ! grep -q "^${CURRENT_USER}.*hard.*core.*0" /etc/security/limits.conf 2>/dev/null; then
+  echo "${CURRENT_USER}  hard  core  0" | sudo tee -a /etc/security/limits.conf > /dev/null
+  echo "Core dumps disabled for user ${CURRENT_USER}."
+else
+  echo "Core dumps already disabled for user ${CURRENT_USER}, skipping."
+fi
