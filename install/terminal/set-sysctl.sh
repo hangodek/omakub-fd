@@ -17,3 +17,12 @@ vm.max_map_count = 2147483642
 EOF
 
 sudo sysctl -p /etc/sysctl.d/99-omakub-performance.conf
+
+# Reduce user-level systemd stop timeout (default 90s is way too long)
+mkdir -p ~/.config/systemd/user.conf.d
+cat <<EOF > ~/.config/systemd/user.conf.d/10-omakub-timeout.conf
+[Manager]
+DefaultTimeoutStopSec=10s
+EOF
+
+echo "User systemd stop timeout set to 10s."
