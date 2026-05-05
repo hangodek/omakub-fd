@@ -26,10 +26,8 @@ cat <<EOF | sudo tee /etc/NetworkManager/conf.d/dns.conf > /dev/null
 dns=systemd-resolved
 EOF
 
-# Enable and restart systemd-resolved and NetworkManager to apply changes
-sudo systemctl enable --now systemd-resolved
-sudo systemctl restart systemd-resolved
-sudo systemctl restart NetworkManager
+# Enable systemd-resolved (changes take effect after reboot to avoid network drops during install)
+sudo systemctl enable systemd-resolved
 
 # Disable NetworkManager-wait-online.service to speed up boot
 echo "Disabling NetworkManager-wait-online.service..."
