@@ -22,7 +22,8 @@ sudo sysctl -p /etc/sysctl.d/99-omakub-performance.conf
 CURRENT_USER=$(whoami)
 if ! grep -q "^${CURRENT_USER}.*hard.*core.*0" /etc/security/limits.conf 2>/dev/null; then
   echo "${CURRENT_USER}  hard  core  0" | sudo tee -a /etc/security/limits.conf > /dev/null
-  echo "Core dumps disabled for user ${CURRENT_USER}."
-else
-  echo "Core dumps already disabled for user ${CURRENT_USER}, skipping."
 fi
+if ! grep -q "^${CURRENT_USER}.*soft.*core.*0" /etc/security/limits.conf 2>/dev/null; then
+  echo "${CURRENT_USER}  soft  core  0" | sudo tee -a /etc/security/limits.conf > /dev/null
+fi
+echo "Core dumps disabled for user ${CURRENT_USER}."
