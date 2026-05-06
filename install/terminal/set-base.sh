@@ -33,6 +33,15 @@ sudo systemctl enable systemd-resolved
 echo "Disabling NetworkManager-wait-online.service..."
 sudo systemctl disable NetworkManager-wait-online.service
 
+# Reduce systemd stop timeout to 10s (default is 90s — too long for stuck apps)
+echo "Setting systemd stop timeout to 10s..."
+sudo mkdir -p /etc/systemd/system.conf.d
+cat <<EOF | sudo tee /etc/systemd/system.conf.d/10-omakub-timeout.conf > /dev/null
+[Manager]
+DefaultTimeoutStopSec=10s
+EOF
+sudo systemctl daemon-reload
+
 # Stop Gnome Software from autostarting (saves RAM)
 if [ -f /etc/xdg/autostart/org.gnome.Software.desktop ]; then
   echo "Disabling Gnome Software autostart..."
