@@ -19,7 +19,7 @@ governor = performance
 turbo = auto
 
 [battery]
-governor = ondemand
+governor = schedutil
 turbo = auto
 EOF
 
