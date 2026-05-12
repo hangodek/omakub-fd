@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo dnf install -y vlc
+sudo snap install vlc

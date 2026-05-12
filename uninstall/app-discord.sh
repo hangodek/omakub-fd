@@ -1,1 +1,1 @@
-sudo apt remove --purge -y discord
+sudo snap remove discord

@@ -1,3 +1,5 @@
 #!/bin/bash
 
-flatpak install -y flathub org.audacityteam.Audacity
+# A multi-track audio editor and recorder
+# Install Audacity via Snap
+sudo snap install audacity

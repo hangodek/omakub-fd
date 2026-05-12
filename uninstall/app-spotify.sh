@@ -1,3 +1,1 @@
-#!/bin/bash
-
-flatpak uninstall -y com.spotify.Client
+sudo snap remove spotify

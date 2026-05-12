@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Install Kdenlive - Professional video editing suite
+# Install Kdenlive - Free and open source video editor
 echo "Installing Kdenlive..."
-
-# Install Kdenlive via DNF (DNF will skip if already installed)
-sudo dnf install -y kdenlive
+sudo snap install kdenlive
 
 echo "Kdenlive installation completed!"

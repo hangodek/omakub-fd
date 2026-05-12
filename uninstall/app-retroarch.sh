@@ -1,3 +1,1 @@
-#!/bin/bash
-
-flatpak uninstall -y flathub org.libretro.RetroArch
+sudo snap remove retroarch

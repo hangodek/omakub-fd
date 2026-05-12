@@ -1,3 +1,5 @@
 #!/bin/bash
 
-sudo flatpak install -y org.gimp.GIMP
+# GNU Image Manipulation Program
+# Install GIMP via Snap
+sudo snap install gimp

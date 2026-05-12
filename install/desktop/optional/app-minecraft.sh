@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Install Java and Minecraft Launcher for Fedora
-sudo dnf install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
-
-# Minecraft launcher is best installed via Flatpak on Fedora
-flatpak install -y flathub com.mojang.Minecraft
+# Minecraft is a game about placing blocks and going on adventures
+# Install Minecraft via Snap (mc-installer)
+sudo snap install mc-installer
