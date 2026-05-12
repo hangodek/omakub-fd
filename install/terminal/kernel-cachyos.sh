@@ -8,11 +8,11 @@ fi
 
 LD_HELP=$(/lib64/ld-linux-x86-64.so.2 --help | grep "(supported, searched)" || true)
 
-if echo "$LD_HELP" | grep -q "x86_64_v3 (supported, searched)"; then
+if echo "$LD_HELP" | grep -q "x86-64-v3 (supported, searched)"; then
   KERNEL_PKG="kernel-cachyos"
   KERNEL_DEVEL_PKG="kernel-cachyos-devel-matched"
   KERNEL_LABEL="default"
-elif echo "$LD_HELP" | grep -q "x86_64_v2 (supported, searched)"; then
+elif echo "$LD_HELP" | grep -q "x86-64-v2 (supported, searched)"; then
   KERNEL_PKG="kernel-cachyos-lts"
   KERNEL_DEVEL_PKG="kernel-cachyos-lts-devel-matched"
   KERNEL_LABEL="lts"
