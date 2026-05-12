@@ -2,7 +2,11 @@
 
 # Install gnome-extensions-app and CLI for easy user extension management later
 sudo dnf install -y gnome-extensions-app pipx
-pipx install gnome-extensions-cli --system-site-packages
+if pipx list | grep -q "gnome-extensions-cli"; then
+	pipx upgrade gnome-extensions-cli
+else
+	pipx install gnome-extensions-cli --system-site-packages
+fi
 
 # Turn off default Fedora/GNOME extensions that might conflict
 gnome-extensions disable ding@rastersoft.com 2>/dev/null || true
