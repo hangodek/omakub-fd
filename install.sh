@@ -9,6 +9,10 @@ trap 'echo "Omakub installation failed! You can retry by running: source ~/.loca
 # Check the distribution name and version and abort if incompatible
 source ~/.local/share/omakub/install/check-version.sh
 
+# Keep sudo cache alive during the installation process
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Ask for app choices
 echo "Get ready to make a few choices..."
 source ~/.local/share/omakub/install/terminal/required/app-gum.sh >/dev/null
