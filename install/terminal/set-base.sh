@@ -9,12 +9,12 @@ if ! grep -q "fastestmirror" /etc/dnf/dnf.conf; then
   echo "fastestmirror=True" | sudo tee -a /etc/dnf/dnf.conf
 fi
 
-# Setup DNS over TLS with Quad9
-echo "Setting up Quad9 DNS over TLS..."
+# Setup DNS over TLS with Cloudflare
+echo "Setting up Cloudflare DNS over TLS..."
 sudo mkdir -p /etc/systemd/resolved.conf.d
 cat <<EOF | sudo tee /etc/systemd/resolved.conf.d/99-dns-over-tls.conf > /dev/null
 [Resolve]
-DNS=9.9.9.9#dns.quad9.net 149.112.112.112#dns.quad9.net 2620:fe::fe#dns.quad9.net 2620:fe::9#dns.quad9.net
+DNS=1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com 2606:4700:4700::1111#cloudflare-dns.com 2606:4700:4700::1001#cloudflare-dns.com
 DNSOverTLS=yes
 Domains=~.
 EOF
