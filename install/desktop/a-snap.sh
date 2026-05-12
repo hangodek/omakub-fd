@@ -1,6 +1,11 @@
 #!/bin/bash
 
 # Install snapd and snap-store
+if command -v snap &> /dev/null; then
+	echo "snap is already installed, skipping."
+	return 0 2>/dev/null || exit 0
+fi
+
 echo "Installing snapd and snap-store..."
 sudo dnf install -y snapd fuse squashfuse kernel-modules
 
