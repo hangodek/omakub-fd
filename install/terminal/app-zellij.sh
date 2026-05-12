@@ -11,3 +11,19 @@ if ! command -v zellij &> /dev/null; then
 else
   echo "Zellij is already installed, skipping."
 fi
+
+ZELLIJ_CONFIG_DIR="$HOME/.config/zellij"
+ZELLIJ_THEMES_DIR="$ZELLIJ_CONFIG_DIR/themes"
+
+mkdir -p "$ZELLIJ_THEMES_DIR"
+
+if [ ! -f "$ZELLIJ_CONFIG_DIR/config.kdl" ]; then
+  cp "$OMAKUB_PATH/configs/zellij.kdl" "$ZELLIJ_CONFIG_DIR/config.kdl"
+fi
+
+for dir in "$OMAKUB_PATH"/themes/*; do
+  if [ -d "$dir" ] && [ -f "$dir/zellij.kdl" ]; then
+    theme_name=$(basename "$dir")
+    cp "$dir/zellij.kdl" "$ZELLIJ_THEMES_DIR/$theme_name.kdl"
+  fi
+done
