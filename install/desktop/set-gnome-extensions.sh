@@ -24,20 +24,30 @@ sudo cp ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/org.gn
 sudo cp ~/.local/share/gnome-shell/extensions/AlphabeticalAppGrid\@stuarthayhurst/schemas/org.gnome.shell.extensions.AlphabeticalAppGrid.gschema.xml /usr/share/glib-2.0/schemas/ 2>/dev/null || true
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
-# Configure Tactile
-gsettings set org.gnome.shell.extensions.tactile col-0 1
-gsettings set org.gnome.shell.extensions.tactile col-1 2
-gsettings set org.gnome.shell.extensions.tactile col-2 1
-gsettings set org.gnome.shell.extensions.tactile col-3 0
-gsettings set org.gnome.shell.extensions.tactile row-0 1
-gsettings set org.gnome.shell.extensions.tactile row-1 1
-gsettings set org.gnome.shell.extensions.tactile gap-size 32
+has_schema() {
+	gsettings list-schemas | grep -qx "$1"
+}
 
-# Configure Space Bar
-gsettings set org.gnome.shell.extensions.space-bar.behavior smart-workspace-names false
-gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-activate-workspace-shortcuts false
-gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts true
-gsettings set org.gnome.shell.extensions.space-bar.shortcuts open-menu "@as []"
+set_gsetting() {
+	local schema="$1"
+	local key="$2"
+	shift 2
+
+	if has_schema "$schema" && gsettings list-keys "$schema" 2>/dev/null | grep -qx "$key"; then
+		gsettings set "$schema" "$key" "$@"
+	else
+		echo "Skipping gsettings: $schema $key (schema/key missing)"
+	fi
+}
+
+# Configure Tactile
+set_gsetting org.gnome.shell.extensions.tactile col-0 1
+set_gsetting org.gnome.shell.extensions.tactile col-1 2
+set_gsetting org.gnome.shell.extensions.tactile col-2 1
+set_gsetting org.gnome.shell.extensions.tactile col-3 0
+set_gsetting org.gnome.shell.extensions.tactile row-0 1
+set_gsetting org.gnome.shell.extensions.tactile row-1 1
+set_gsetting org.gnome.shell.extensions.tactile gap-size 32
 
 # Configure AlphabeticalAppGrid
-gsettings set org.gnome.shell.extensions.alphabetical-app-grid folder-order-position 'end'
+set_gsetting org.gnome.shell.extensions.alphabetical-app-grid folder-order-position "end"
