@@ -28,4 +28,4 @@ turbo = auto
 EOF
 
 # Enable and start auto-cpufreq
-sudo auto-cpufreq --install
+systemctl is-active --quiet auto-cpufreq || sudo auto-cpufreq --install
