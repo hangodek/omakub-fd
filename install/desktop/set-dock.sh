@@ -5,21 +5,14 @@ apps=(
 	"librewolf.desktop"
 	"google-chrome.desktop"
 	"Alacritty.desktop"
-	"Neovim.desktop"
 	"code.desktop"
 	"discord.desktop"
-	"kdenlive.desktop"
-	"obs-studio.desktop"
-	"waydroid.desktop"
-	"Zoom.desktop"
-	"spotify.desktop"
-	"steam.desktop"
-	"Activity.desktop"
+	"steam_steam.desktop"
+	"spotify_spotify.desktop"
+	"obs-studio_obs-studio.desktop"
+	"Waydroid.desktop"
+	"net.lutris.Lutris.desktop"
 	"Docker.desktop"
-	"Omakub.desktop"
-	"1password.desktop"
-	"org.gnome.Settings.desktop"
-	"org.gnome.Nautilus.desktop"
 )
 
 # Array to hold installed favorite apps
@@ -29,6 +22,7 @@ installed_apps=()
 desktop_dirs=(
 	"/usr/share/applications"
 	"/usr/local/share/applications"
+	"/var/lib/snapd/desktop/applications"
 	"$HOME/.local/share/applications"
 )
 
