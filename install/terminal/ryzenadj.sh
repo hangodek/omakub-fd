@@ -45,7 +45,7 @@ args=()
 if [[ -n "$STAPM_LIMIT" ]]; then args+=("-a" "$STAPM_LIMIT"); fi
 if [[ -n "$FAST_LIMIT" ]]; then args+=("-b" "$FAST_LIMIT"); fi
 if [[ -n "$SLOW_LIMIT" ]]; then args+=("-c" "$SLOW_LIMIT"); fi
-if [[ -n "$TCTL_LIMIT" ]]; then args+=("-f" "$TCTL_LIMIT"); fi
+if [[ -n "$TCTL_LIMIT" ]]; then args+=("-f" "$TCTL_LIMIT" "--max-performance"); fi
 
 if [[ ${#args[@]} -eq 0 ]]; then
   echo "No RyzenAdj limits set; skipping."
