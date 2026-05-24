@@ -47,3 +47,23 @@ if [ -f /etc/xdg/autostart/org.gnome.Software.desktop ]; then
   echo "Disabling Gnome Software autostart..."
   sudo rm /etc/xdg/autostart/org.gnome.Software.desktop
 fi
+
+# Install PowerTOP and enable auto-tune on boot
+echo "Installing PowerTOP..."
+sudo dnf install -y powertop
+
+sudo tee /etc/systemd/system/powertop-autotune.service > /dev/null <<'EOF'
+[Unit]
+Description=PowerTOP auto-tune
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/powertop --auto-tune
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now powertop-autotune.service
